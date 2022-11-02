@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+/**
+ * @author      : Shivananda Shenoy (Madhukar)
+ **/
+
+@import url("base_bs.css");
+@import url("fonts.css");
+@import url("animate.css");
+@import url("select2.css");
+@import url("datepicker.css");
+
+/** Custom Style **/
+
+body {
+    font-family: 'Varela Round', sans-serif;
+    font-size: 0.8125rem;
+    text-rendering: auto;
+    /* background-color: #eef4fd; */
+    background-color: #007bff;
+    color: #222222;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+req {
+    color: #ff1e4e;
+}
+
+.main-div {
+    margin-top: 80px;
+}
+
+.box-min-h400 {
+    min-height: 400px;
+}
+
+.footer {
+    padding: 20px 0;
+    text-align: center;
+    color: #ffffff;
+}
+
+.select2-container .select2-selection--single {
+    height: 38px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered,
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 38px;
+    line-height: 38px;
+}
