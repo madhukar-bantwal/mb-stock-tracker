@@ -9,7 +9,7 @@ defined('PROJECT_NAME') OR exit();
 
 // File Configs
 $allowed_ext = ['csv'];
-$allowed_mimes = ['text/csv'];
+$allowed_mimes = ['text/csv','application/vnd.ms-excel'];
 $allowed_size = "2097152"; //Bytes // - 2097152 = 2MB // 550000 = 550KB // 350000 = 350 KB  500000 = 500 KB
 $Extension = "";
 

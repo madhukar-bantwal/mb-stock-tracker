@@ -163,7 +163,7 @@ require_once(dirname(__FILE__) . '/system/auto-load.php');
                                     </div>
                                 </div>
                                 <div class="col-md-6 form-group">
-                                    <label class="col-md-12 text-dark">Buy Price </label>
+                                    <label class="col-md-12 text-dark">Buy Price <i class="mdi mdi-currency-inr"></i></label>
                                     <div class="col-md-12">
                                     <input type="text" id="buyPrice" class="form-control border-input readonly" autocomplete="none" readonly="true">
                                     </div>
@@ -182,7 +182,7 @@ require_once(dirname(__FILE__) . '/system/auto-load.php');
                                     </div>
                                 </div>
                                 <div class="col-md-6 form-group">
-                                    <label class="col-md-12 text-dark">Sell Price </label>
+                                    <label class="col-md-12 text-dark">Sell Price <i class="mdi mdi-currency-inr"></i></label>
                                     <div class="col-md-12">
                                     <input type="text" id="sellPrice" class="form-control border-input readonly" autocomplete="none" readonly="true">
                                     </div>
@@ -193,7 +193,7 @@ require_once(dirname(__FILE__) . '/system/auto-load.php');
 
                     <div class="row justify-content-center">
                         <div class="col-md-5 form-group">
-                            <label class="col-md-12 text-dark">Per Share Profit</label>
+                            <label class="col-md-12 text-dark">Per Share Profit <i class="mdi mdi-currency-inr"></i></label>
                             <div class="col-md-12">
                             <input type="text" id="shareProfit" class="form-control border-input readonly" autocomplete="none" readonly="true">
                             </div>
@@ -202,7 +202,7 @@ require_once(dirname(__FILE__) . '/system/auto-load.php');
 
                     <div class="row justify-content-center">
                         <div class="col-md-5 form-group">
-                            <label class="col-md-12 text-dark">Trade Profit</label>
+                            <label class="col-md-12 text-dark">Trade Profit <i class="mdi mdi-currency-inr"></i></label>
                             <div class="col-md-12">
                             <input type="text" id="totalProfit" class="form-control border-input readonly" autocomplete="none" readonly="true">
                             </div>
