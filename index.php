@@ -154,7 +154,7 @@ require_once(dirname(__FILE__) . '/system/auto-load.php');
                     </div>
 
                     <div class="row justify-content-center">
-                        <div class="col-md-5 form-group">
+                        <div class="col-md-5">
                             <div class="row">
                             <div class="col-md-6 form-group">
                                     <label class="col-md-12 text-dark">Buy Date</label>
@@ -173,7 +173,7 @@ require_once(dirname(__FILE__) . '/system/auto-load.php');
                     </div>
 
                     <div class="row justify-content-center">
-                        <div class="col-md-5 form-group">
+                        <div class="col-md-5">
                             <div class="row">
                             <div class="col-md-6 form-group">
                                     <label class="col-md-12 text-dark">Sell Date</label>
