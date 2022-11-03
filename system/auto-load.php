@@ -34,6 +34,10 @@ if(APP_DEBUG == true) {
     ini_set('log_errors', 'On');
 }
 
+/** Start Session **/
+session_name('MB-SessID');
+session_start();
+
 /** Encryption Key */
 if(!isset($_SESSION['SessionKey']) || $_SESSION['SessionKey'] == NULL) {
     $_SESSION['SessionKey'] = substr(hash('sha256',mt_rand().microtime()),0,12); // New random key
@@ -44,10 +48,6 @@ header('X-Frame-Options: SAMEORIGIN');
 header('X-Content-Type-Options: nosniff');
 header('X-XSS-Protection: 1; mode=block');
 header('X-Powered-By: Shivananda Shenoy (Madhukar)');
-
-/** Start Session **/
-session_name('MB-SessID');
-session_start();
 
 /** Import Class */
 require_once( CORE_PATH . '/custom-class.php');
