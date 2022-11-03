@@ -75,7 +75,7 @@ else {
     if(!is_array($filtered_list) || count($filtered_list) < "1") {
         echo "<script> Swal.fire('','No records between selected date range'); </script>";
     }
-    if(count($filtered_list) < "2") {
+    elseif(count($filtered_list) < "2") {
         echo "<script> Swal.fire('','No multiple records available for selected date range'); </script>";
     } 
     else {
