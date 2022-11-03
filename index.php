@@ -293,39 +293,39 @@ require_once(dirname(__FILE__) . '/system/auto-load.php');
         
             $('.select2').select2({ width: '100%' });
 
-        // From Date
-        $("#fromDate").daterangepicker({
-            singleDatePicker: true,
-            showDropdowns: true,
-            autoApply: true,
-            locale: {
-            format: 'DD-MM-YYYY', // Format
+            // From Date
+            $("#fromDate").daterangepicker({
+                singleDatePicker: true,
+                showDropdowns: true,
+                autoApply: true,
+                locale: {
+                format: 'DD-MM-YYYY', // Format
+                },
+                autoUpdateInput: false,
+            }, function(chosen_date) {
+                $('#fromDate').val(chosen_date.format('DD-MM-YYYY'));
+            });
+
+            $('input[name="fromDate"]').on('apply.daterangepicker', function(ev, picker) {
+                $(this).val(picker.startDate.format('DD-MM-YYYY'));
+            });
+
+            //Upto Date
+            $("#uptoDate").daterangepicker({
+                singleDatePicker: true,
+                showDropdowns: true,
+                autoApply: true,
+                locale: {
+                format: 'DD-MM-YYYY', // Format
             },
-            autoUpdateInput: false,
-        }, function(chosen_date) {
-            $('#fromDate').val(chosen_date.format('DD-MM-YYYY'));
-        });
+                autoUpdateInput: false,
+            }, function(chosen_date) {
+                $('#uptoDate').val(chosen_date.format('DD-MM-YYYY'));
+            });
 
-        $('input[name="fromDate"]').on('apply.daterangepicker', function(ev, picker) {
-            $(this).val(picker.startDate.format('DD-MM-YYYY'));
-        });
-
-        //Upto Date
-        $("#uptoDate").daterangepicker({
-            singleDatePicker: true,
-            showDropdowns: true,
-            autoApply: true,
-            locale: {
-            format: 'DD-MM-YYYY', // Format
-        },
-            autoUpdateInput: false,
-        }, function(chosen_date) {
-            $('#uptoDate').val(chosen_date.format('DD-MM-YYYY'));
-        });
-
-        $('input[name="uptoDate"]').on('apply.daterangepicker', function(ev, picker) {
-            $(this).val(picker.startDate.format('DD-MM-YYYY'));
-        });
+            $('input[name="uptoDate"]').on('apply.daterangepicker', function(ev, picker) {
+                $(this).val(picker.startDate.format('DD-MM-YYYY'));
+            });
         
         });
 
