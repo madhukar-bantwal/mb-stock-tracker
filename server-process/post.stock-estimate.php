@@ -80,6 +80,11 @@ else {
     } 
     else {
 
+        $finalBuyAmt = "";
+        $finalBuyDate = "";
+        $finalSellAmt = "";
+        $finalSellDate = "";
+
         // Calculate
         $minPrice = PHP_INT_MAX;
         $maxPrice = PHP_INT_MAX;
