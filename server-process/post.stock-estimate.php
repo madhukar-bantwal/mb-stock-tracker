@@ -81,29 +81,67 @@ else {
     else {
 
         // Calculate
-        $profit = 0;
-        $max = 0;
-        $min = PHP_INT_MAX;
+        $minPrice = PHP_INT_MAX;
+        $maxPrice = PHP_INT_MAX;
+        $maxProfit = 0;
+        $buyDate = $filtered_list[0][0];
+        $sellDate = $filtered_list[count($filtered_list) - 1][0];
+        $priceList = array();
 
-        foreach($filtered_list as $record) {
-            if($record[1] < $min) {
-                $min = $record[1];
-                $buyDate = $record[0];
-            } else {
-                $profit = max($profit, $record[1] - $min);
-                $max = $record[1];
-                $sellDate = $record[0];
+        for($i=0; $i<count($filtered_list); $i++) {
+            $priceList[] = $filtered_list[$i][1];
+            if ($filtered_list[$i][1] < $minPrice) {
+                $minPrice = $filtered_list[$i][1];
+                $buyDate = $filtered_list[$i][0];
+            }
+            else if ($filtered_list[$i][1] - $minPrice > $maxProfit) {
+                //$maxProfit = $filtered_list[$i][1] - $minPrice;
+                $newProfit = $filtered_list[$i][1] - $minPrice;
+                $maxPrice = $filtered_list[$i][1];
+                $sellDate = $filtered_list[$i][0];
+            }
+            if(isset($newProfit) && $newProfit > $maxProfit) {
+                $maxProfit = $newProfit;
+                $finalBuyAmt = $minPrice;
+                $finalBuyDate = $buyDate;
+                $finalSellAmt = $maxPrice;
+                $finalSellDate = $sellDate;
             }
         }
-    
+
+        //standard deviation
+        function standDeviation($arr) { 
+            if(is_array($arr) && $arr != false) {
+                $num_of_elements = count($arr);
+                $variance = 0.0;
+                $average = array_sum($arr)/$num_of_elements; 
+                foreach($arr as $i) {
+                    $variance += pow(($i - $average), 2); 
+                }
+                $number = (float)sqrt($variance/$num_of_elements);
+                return number_format((float)$number, 2, '.', '');
+            }
+        }
+
+        //Mean
+        function calcMean($arr) {
+            if(is_array($arr) && $arr != false) {
+                $number = array_sum($arr) / count($arr);
+                return number_format((float)$number, 2, '.', '');
+            } 
+        }
+        
+
         echo "<script>";
         echo " $('#opStockAction').html('".$webApp->jsEscape("{$clientName} will be buying {$_POST['stockQty']} qty. {$stockName[0]} shares")."'); ";
-        echo " $('#buyDate').val('".$webApp->jsEscape($buyDate)."'); ";
-        echo " $('#buyPrice').val('".$webApp->jsEscape($min)."'); ";
-        echo " $('#sellDate').val('".$webApp->jsEscape($sellDate)."'); ";
-        echo " $('#sellPrice').val('".$webApp->jsEscape($max)."'); ";
-        echo " $('#shareProfit').val('".$webApp->jsEscape($profit)."'); ";
-        echo " $('#totalProfit').val('".$webApp->jsEscape(($profit * $_POST['stockQty']))."'); ";
+        echo " $('#buyDate').val('".$webApp->jsEscape($finalBuyDate)."'); ";
+        echo " $('#buyPrice').val('".$webApp->jsEscape($minPrice)."'); ";
+        echo " $('#sellDate').val('".$webApp->jsEscape($finalSellDate)."'); ";
+        echo " $('#sellPrice').val('".$webApp->jsEscape($maxPrice)."'); ";
+        echo " $('#shareProfit').val('".$webApp->jsEscape($maxProfit)."'); ";
+        echo " $('#totalProfit').val('".$webApp->jsEscape(($maxProfit * $_POST['stockQty']))."'); ";
+        echo " $('#standDeviation').val('".$webApp->jsEscape(standDeviation($priceList))."'); ";
+        echo " $('#calcMean').val('".$webApp->jsEscape(calcMean($priceList))."'); ";
         echo " $('#tab-nav-3').trigger('click'); ";
         echo "</script>";
 

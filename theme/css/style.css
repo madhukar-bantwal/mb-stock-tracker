@@ -23,6 +23,10 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+.font-sm {
+    font-size: 0.75rem;
+}
+
 req {
     color: #ff1e4e;
 }

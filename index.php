@@ -145,72 +145,88 @@ require_once(dirname(__FILE__) . '/system/auto-load.php');
                 <div class="tab-pane" id="tab-3" role="tabpanel" aria-labelledby="tab-3">
 
                     <div class="row justify-content-center">
-                        <div class="col-md-5 form-group">
-                            <label class="col-md-12 text-dark">Action</label>
-                            <div class="col-md-12">
-                            <textarea class="form-control border-input readonly" id="opStockAction" rows="2" readonly="true"></textarea>
-                            </div>
-                        </div>
-                    </div>
+                        
+                        <!-- Left -->
+                        <div class="col-md-6">
+                        <div class="row justify-content-center">
 
-                    <div class="row justify-content-center">
-                        <div class="col-md-5">
-                            <div class="row">
+                            <div class="col-md-12 form-group">
+                                <label class="col-md-12 text-dark">Action</label>
+                                <div class="col-md-12">
+                                <textarea class="form-control border-input readonly" id="opStockAction" rows="1" readonly="true"></textarea>
+                                </div>
+                            </div>
+
                             <div class="col-md-6 form-group">
-                                    <label class="col-md-12 text-dark">Buy Date</label>
-                                    <div class="col-md-12">
-                                    <input type="text" id="buyDate" class="form-control border-input readonly" autocomplete="none" readonly="true">
-                                    </div>
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <label class="col-md-12 text-dark">Buy Price <i class="mdi mdi-currency-inr"></i></label>
-                                    <div class="col-md-12">
-                                    <input type="text" id="buyPrice" class="form-control border-input readonly" autocomplete="none" readonly="true">
-                                    </div>
+                                <label class="col-md-12 text-dark">Buy Date</label>
+                                <div class="col-md-12">
+                                <input type="text" id="buyDate" class="form-control border-input readonly" autocomplete="none" readonly="true">
                                 </div>
                             </div>
-                        </div>
-                    </div>
 
-                    <div class="row justify-content-center">
-                        <div class="col-md-5">
-                            <div class="row">
                             <div class="col-md-6 form-group">
-                                    <label class="col-md-12 text-dark">Sell Date</label>
-                                    <div class="col-md-12">
-                                    <input type="text" id="sellDate" class="form-control border-input readonly" autocomplete="none" readonly="true">
-                                    </div>
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <label class="col-md-12 text-dark">Sell Price <i class="mdi mdi-currency-inr"></i></label>
-                                    <div class="col-md-12">
-                                    <input type="text" id="sellPrice" class="form-control border-input readonly" autocomplete="none" readonly="true">
-                                    </div>
+                                <label class="col-md-12 text-dark">Buy Price <i class="mdi mdi-currency-inr"></i></label>
+                                <div class="col-md-12">
+                                <input type="text" id="buyPrice" class="form-control border-input readonly" autocomplete="none" readonly="true">
                                 </div>
                             </div>
-                        </div>
-                    </div>
 
-                    <div class="row justify-content-center">
-                        <div class="col-md-5 form-group">
-                            <label class="col-md-12 text-dark">Per Share Profit <i class="mdi mdi-currency-inr"></i></label>
-                            <div class="col-md-12">
-                            <input type="text" id="shareProfit" class="form-control border-input readonly" autocomplete="none" readonly="true">
+                            <div class="col-md-6 form-group">
+                                <label class="col-md-12 text-dark">Sell Date</label>
+                                <div class="col-md-12">
+                                <input type="text" id="sellDate" class="form-control border-input readonly" autocomplete="none" readonly="true">
+                                </div>
                             </div>
-                        </div>
-                    </div>
 
-                    <div class="row justify-content-center">
-                        <div class="col-md-5 form-group">
-                            <label class="col-md-12 text-dark">Trade Profit <i class="mdi mdi-currency-inr"></i></label>
-                            <div class="col-md-12">
-                            <input type="text" id="totalProfit" class="form-control border-input readonly" autocomplete="none" readonly="true">
+                            <div class="col-md-6 form-group">
+                                <label class="col-md-12 text-dark">Sell Price <i class="mdi mdi-currency-inr"></i></label>
+                                <div class="col-md-12">
+                                <input type="text" id="sellPrice" class="form-control border-input readonly" autocomplete="none" readonly="true">
+                                </div>
                             </div>
+
                         </div>
+                        </div>
+                        
+                        <!-- Right -->
+                        <div class="col-md-3">
+                        <div class="row justify-content-center">
+
+                            <div class="col-md-12 form-group">
+                                <label class="col-md-12 text-dark">Per Share Profit <i class="mdi mdi-currency-inr"></i></label>
+                                <div class="col-md-12">
+                                <input type="text" id="shareProfit" class="form-control border-input readonly" autocomplete="none" readonly="true">
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 form-group">
+                                <label class="col-md-12 text-dark">Trade Profit <i class="mdi mdi-currency-inr"></i></label>
+                                <div class="col-md-12">
+                                <input type="text" id="totalProfit" class="form-control border-input readonly" autocomplete="none" readonly="true">
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 form-group">
+                                <label class="col-md-12 text-dark">Mean Stock Price <i class="mdi mdi-currency-inr"></i></label>
+                                <div class="col-md-12">
+                                <input type="text" id="calcMean" class="form-control border-input readonly" autocomplete="none" readonly="true">
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 form-group">
+                                <label class="col-md-12 text-dark">Standard Deviation </label>
+                                <div class="col-md-12">
+                                <input type="text" id="standDeviation" class="form-control border-input readonly" autocomplete="none" readonly="true">
+                                </div>
+                            </div>
+
+                        </div>
+                        </div>
+                    
                     </div>
 
                     <div class="row justify-content-center mt-3 px-3">
-                        <div class="col-md-5 form-group text-center px-4">
+                        <div class="col-md-9 form-group px-3">
                             <a href="javascript:void(0);" id="btn1" class="btn btn-secondary btn-block" onClick="goBack();"><i class="mdi mdi-arrow-left"></i> Go Back</a>
                         </div>
                     </div>
